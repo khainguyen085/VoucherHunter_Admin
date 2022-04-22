@@ -1,0 +1,138 @@
+.product {
+  margin: 80px;
+
+  @include custom-media(tablet) {
+    margin: 40px;
+  }
+
+  .product-container {
+    margin: 32px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    gap: 32px;
+    padding-bottom: 40px;
+
+    @include custom-media(tablet-large) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include custom-media(mobile) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: $box-shadow-1;
+      cursor: pointer;
+      transition: transform 0.3s linear;
+      min-height: 200px;
+      height: 100%;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+
+      .card-body {
+        margin: 16px 24px;
+
+        p {
+          margin-bottom: 0;
+        }
+
+        p:first-child {
+          font-size: 20px;
+          font-weight: bold;
+
+          @include custom-media(mobile) {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .image-container {
+        width: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.search-bar {
+  width: 400px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  background-color: $light-grey-color-1;
+  border-radius: 500px;
+  padding: 8px 12px;
+  column-gap: 8px;
+
+  @include custom-media(tablet) {
+    width: 100%;
+  }
+
+  input {
+    border: 0;
+    width: 100%;
+    background-color: transparent;
+    color: $dark-grey;
+
+    &::placeholder {
+      color: $dark-grey;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+
+    i::before {
+      color: $dark-grey;
+    }
+  }
+}
+
+.pagination-container {
+  width: fit-content;
+  margin-left: auto;
+  margin-bottom: 40px;
+  button {
+    height: 32px;
+    width: 32px;
+    background-color: #fff;
+    border: 1px solid $light-grey-color-2;
+    color: $dark-grey;
+    border-radius: 4px;
+    margin: 0 2px;
+    cursor: pointer;
+
+    &.active {
+      background-color: $primary;
+    }
+
+    &.rest-btn {
+      background: none;
+      border: 0;
+      display: inline-flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}
